@@ -11,6 +11,7 @@ def error_msg():
     print("\nPlease enter only values 6 or 8...\n")
     time.sleep(0.3)
 
+# This should be generalized
 dist6 = [" 2: ", " 3: ", " 4: ", " 5: ", " 6: ", " 7: ", " 8: ", " 9: ", "10: ", "11: ", "12: "]
 dist8 = [" 2: ", " 3: ", " 4: ", " 5: ", " 6: ", " 7: ", " 8: ", " 9: ", "10: ", "11: ", "12: ", "13: ", "14: ", "15: ", "16: "]
 
@@ -19,21 +20,27 @@ def loop(dis, d):
         time.sleep(0.1)
         dis[d_roll(d) - 2] += "|"
         print()
+        print("="*79)
+        print("Showing dice roll distribution of two %s sided dice:" % number)
+        print("="*79)
         for i in range(len(dis)):
             print(dis[i])
+        print("="*79)
+        print("Use Ctrl+c in order to quit...")
+        print("="*79)
 
-while True:
+while True: # After generalizing distrobutions, optimize if/elif statements
     try:
         number = int(input("Choose 6 or 8 sided dice: "))
         if number == 6:
-            choice = dist6
+            dist_gen = dist6
             break
         elif number == 8:
-            choice = dist8
+            dist_gen = dist8
             break
         else:
             error_msg()
     except ValueError:
         error_msg()
 
-loop(choice, number)
+loop(dist_gen, number)
