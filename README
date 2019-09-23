@@ -1,4 +1,4 @@
 This is a simple dice simulator for rolling two 6 or 8 sided dice and seeing their distribution.
 
-*Goal is to generalize up to ~20 sided dice
+*Goal is to generalize to all platonic solids
 *Also interested in optimizing code
